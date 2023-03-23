@@ -2,6 +2,15 @@ const router = require('express').Router();
 const { Location } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+router.get('/', async (req, res) => {
+    try {
+        const locationData = await Location.findAll();
+        res.status(200).json(locationData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 router.post('/', withAuth, async (req, res) => {
     try {
         const newLocation = await Location.create({
@@ -12,6 +21,29 @@ router.post('/', withAuth, async (req, res) => {
         res.status(200).json(newLocation);
     } catch (err) {
         res.status(400).json(err);
+    }
+});
+
+router.put('/:id', async (req, res) => {
+    try {
+        const updatedLocation = await Location.update(
+            {
+                // Edit fields if needed
+                name: req.body.name,
+                biome: req.body.biome,
+                interest: req.body.interest,
+                history: req.body.history,
+            },
+            {
+                where: {
+                    id: req.params.id,
+                },
+            }
+        )
+        res.status(200).json(updatedLocation);
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
     }
 });
 
