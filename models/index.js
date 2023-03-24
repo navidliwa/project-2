@@ -3,7 +3,6 @@ const Location = require('./location');
 const Character = require('./character');
 const Plot = require('./plot');
 
-
 User.hasMany(Plot, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
@@ -30,6 +29,5 @@ User.hasMany(Location, {
   Location.belongsTo(User, {
     foreignKey: 'user_id'
   });
-  
 
 module.exports = {User, Location, Character, Plot}

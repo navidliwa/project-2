@@ -49,7 +49,4 @@ Character.init(
     }
 )
 
-
-
-
 module.exports = Character;
