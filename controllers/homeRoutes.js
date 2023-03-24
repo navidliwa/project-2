@@ -76,10 +76,102 @@ router.get('/plot/:id', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
+router.get('/location/:id', async (req, res) => {
+  try {
+    const locationData = await Location.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+          model: Plot
+        },
+      ],
+    });
+    const locations = locationData.get({ plain: true });
+
+    const plotData = await Plot.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const plots = plotData.get({ plain: true });
+
+    const characterData = await Character.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+          model: Plot
+        },
+      ],
+    });
+
+    const characters = characterData.get({ plain: true });
+
+    res.render('location', {
+      ...plots,
+      ...characters,
+      ...locations,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/character/:id', async (req, res) => {
+  try {
+    const characterData = await Character.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+          model: Plot
+        },
+      ],
+    });
+
+    const characters = characterData.get({ plain: true });
+
+    const locationData = await Location.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+          model: Plot
+        },
+      ],
+    });
+    const locations = locationData.get({ plain: true });
+
+    const plotData = await Plot.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const plots = plotData.get({ plain: true });
+
+    res.render('character', {
+      ...plots,
+      ...characters,
+      ...locations,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/profile', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Plot }],
@@ -97,7 +189,6 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;
