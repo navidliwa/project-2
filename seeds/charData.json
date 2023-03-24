@@ -1,0 +1,32 @@
+[
+    {
+      "name": "Printz the Druid",
+      "description": "A fungal junky who smells kind of funky.",
+      "homeland": "The Ironwood Forest",
+      "profession": "Gardener",
+      "philosophy": "Chaotic neutral; keeps to himself mostly, cares about the forest and nature more than folk.",
+      "motivation": "Printz really really likes mushrooms. Almost to an unhealthy extent. And he spends all of his time traveling the world trying to find new ways to experience the universe.",
+      "notes": "Everywhere he goes, people mishear his name as Prince, and he's pretty tired of being mistaken for royalty.",
+      "user_id": 1
+    },
+    {
+      "name": "Trey Octavius Quincy",
+      "description": "Street magician by day, hero by dusk. Respectable: never.",
+      "homeland": "The Astral Sea",
+      "profession": "Entertainer, Adventurer",
+      "philosophy": "Lawful good; hunts monsters because he feels that their presence disrupts society, which makes people less likely to tip.",
+      "motivation": "Trey has had a hard life; born as indentured labor on a salvage ship, he eventually escaped and found new purpose in making people smile at rabbits pulled from hats. He quietly does good deeds for folk in need, but he has a lasting resentment for the people who imprisoned him for most of his life, and vows to get revenge.",
+      "notes": "Dresses really well--like obnoxiously well. Were he not a wizard, it would be impossible for him to keep his suits clean.",
+      "user_id": 1
+    },
+    {
+      "name": "Betty",
+      "description": "Half giant teenager in a tutu, desperately searching for her identity.",
+      "homeland": "Knifeback Ridge",
+      "profession": "Bodyguard",
+      "philosophy": "True neutral; she doesn't put a lot of thought into complicated concepts like morality, religion, or politics. What she does know is: her tutu is the height of fasion.",
+      "motivation": "Betty just wants to find somewhere she fits in. She's tall for her age (even for half-giants), and she knows that intimidates people, but she doesn't care why (they're short, so what they say is not relevant).",
+      "notes": "All of her posessions are covered in dirt and dust. She likes them that way.",
+      "user_id": 1
+    }
+  ]
