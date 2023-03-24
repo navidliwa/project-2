@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS plotpoint_db;
+CREATE DATABASE plotpoint_db;
