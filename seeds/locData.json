@@ -1,0 +1,42 @@
+[
+    {
+        "name": "The Ironwood Forest",
+        "description": "desc",
+        "biome": "Forest, Mountains",
+        "places of interest": "Drygullet Mine, Brassville, The Sylvan Pools",
+        "history": "hist",
+        "user_id": 1
+    },
+    {
+        "name": "Rusted Canyons",
+        "description": "desc",
+        "biome": "Desert",
+        "places of interest": "The Slag Heap, Churchill Steelworks, Widow's Pass",
+        "history": "hist",
+        "user_id": 1
+    },
+    {
+        "name": "The Astral Sea",
+        "description": "desc",
+        "biome": "void, underdark",
+        "places of interest": "none",
+        "history": "hist",
+        "user_id": 1
+    },
+    {
+        "name": "Knifeback Ridge",
+        "description": "desc",
+        "biome": "Mountains, Plains, Tundra",
+        "places of interest": "Canyon of the Stone Giants, Haven Township, Spirit Lake",
+        "history": "hist",
+        "user_id": 1
+    },
+    {
+        "name": "The Great City of New Alexandria",
+        "description": "desc",
+        "biome": "Urban, Plains",
+        "places of interest": "The Holey Warrior Tavern and Gastro Pub, Alexandria Arcane University, Cheapside Parish",
+        "history": "hist",
+        "user_id": 1
+    }
+]

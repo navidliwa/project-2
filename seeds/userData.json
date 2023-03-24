@@ -2,16 +2,7 @@
     {
       "name": "valjean451",
       "email": "kendall.cluff@gmail.com",
-      "password": "password12345"
-    },
-    {
-      "name": "Gandalf",
-      "email": "maiar_lyfe7@gmail.com",
-      "password": "password12345"
-    },
-    {
-      "name": "Bilbo",
-      "email": "secondbreakfast@aol.com",
-      "password": "password12345"
+      "password": "password12345",
+      "id": 1
     }
-  ]
+]

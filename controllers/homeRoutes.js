@@ -1,6 +1,6 @@
 const router = require('express').Router();
 // Models do not exist yet
-const { User, Plot, Location, Characters } = require('../models');
+const { User, Plot, Location, Character } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -76,6 +76,7 @@ router.get('/plot/:id', async (req, res) => {
   }
 });
 
+
 router.get('/location/:id', async (req, res) => {
   try {
     const locationData = await Location.findByPk(req.params.id, {
@@ -106,6 +107,16 @@ router.get('/location/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
           model: Plot
+
+router.get('/update/plot/:id', withAuth, async (req, res) => {
+  try {
+    const plotData = await Plot.findByPk(req.params.id, {
+      include: [
+        User,
+        {
+          model: Comment,
+          include: [User]
+
         },
       ],
     });
@@ -119,6 +130,14 @@ router.get('/location/:id', async (req, res) => {
       logged_in: req.session.logged_in
     });
   } catch (err) {
+    const plot = plotData.get({ plain: true });
+
+    res.render('plotupdate', {
+      ...plot,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
@@ -131,6 +150,14 @@ router.get('/character/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
           model: Plot
+router.get('/update/location/:id', withAuth, async (req, res) => {
+  try {
+    const locationData = await Location.findByPk(req.params.id, {
+      include: [
+        User,
+        {
+          model: Comment,
+          include: [User]
         },
       ],
     });
@@ -153,6 +180,26 @@ router.get('/character/:id', async (req, res) => {
         {
           model: User,
           attributes: ['name'],
+    const location = locationData.get({ plain: true });
+
+    res.render('locationupdate', {
+      ...location,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+router.get('/update/character/:id', withAuth, async (req, res) => {
+  try {
+    const characterData = await Character.findByPk(req.params.id, {
+      include: [
+        User,
+        {
+          model: Comment,
+          include: [User]
         },
       ],
     });
@@ -166,10 +213,19 @@ router.get('/character/:id', async (req, res) => {
       logged_in: req.session.logged_in
     });
   } catch (err) {
+    const character = characterData.get({ plain: true });
+
+    res.render('characterupdate', {
+      ...character,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
 
+// Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
