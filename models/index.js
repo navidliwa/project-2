@@ -31,15 +31,19 @@ Location.belongsTo(User, {
 });
 
 Location.hasMany(Character, {
-  foreignKey: 'homeland'
+  foreignKey: 'location_id'
 });
 
-Character.hasOne(Location, {
-  foreignKey: 'name'
+Character.belongsTo(Location, {
+  foreignKey: 'id'
 });
 
-Location.hasMany(Plot, {
-  foreignKey: 'name'
+Plot.hasOne(Location, {
+  foreignKey: 'id'
 });
+
+// Location.belongsTo(Plot, {
+//   foreignKey: 'location_id'
+// });
 
 module.exports = { User, Location, Character, Plot }

@@ -9,6 +9,7 @@ Plot.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            unique: true,
             autoIncrement: true,
         },
         name: {
@@ -19,12 +20,12 @@ Plot.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        location: {
-            type: DataTypes.STRING,
+        location_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'location',
-                key: 'name',
+                key: 'id',
               },
         },
         characters: {
@@ -43,7 +44,7 @@ Plot.init(
               model: 'user',
               key: 'id',
             },
-        }
+        },
     },
     {
         sequelize,

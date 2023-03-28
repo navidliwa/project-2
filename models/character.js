@@ -19,12 +19,12 @@ Character.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        homeland: {
-            type: DataTypes.STRING,
+        location_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'location',
-                key: 'name',
+                key: 'id',
               },
         },
         profession: {
