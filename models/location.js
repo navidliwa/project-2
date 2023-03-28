@@ -9,6 +9,7 @@ Location.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            unique: true,
             autoIncrement: true,
         },
         name: {
@@ -29,6 +30,14 @@ Location.init(
         history: {
             type: DataTypes.TEXT('long')
         },
+        // story: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     references: {
+        //         model: 'plot',
+        //         key: 'name',
+        //     },
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
