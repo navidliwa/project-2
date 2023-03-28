@@ -16,11 +16,12 @@ router.get('/', async (req, res) => {
     const plots = plotData.map((plot) => plot.get({ plain: true }));
 
     res.render('dashboard', {
-      projects,
+      plots,
       logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
+    console.log(err);
   }
 });
 
@@ -63,6 +64,8 @@ router.get('/location/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 
 router.get('/character/:id', async (req, res) => {
   try {
@@ -145,17 +148,29 @@ router.get('/update/character/:id', withAuth, async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Plot }],
     });
 
+    const plotData = await Plot.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const plots = plotData.map((plot) => plot.get({ plain: true }));
+
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('dashboard', {
       ...user,
+      ...plots,
       logged_in: true
     });
   } catch (err) {
@@ -165,7 +180,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/dashboard');
     return;
   }
 
