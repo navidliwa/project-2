@@ -2,7 +2,7 @@
     {
         "name": "The Heist of the Age",
         "description": "The governing body of New Alexandria is corrupt. We're going to take away their right to rule.",
-        "location": "The Great City of New Alexandria",
+        "location_id": 5,
         "characters": "Betty, Trey Octavius Quincy, Printz the Druid",
         "conflict": "conflict",
         "payoff": "payoff",
