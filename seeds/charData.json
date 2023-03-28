@@ -2,7 +2,7 @@
     {
       "name": "Printz the Druid",
       "description": "A fungal junky who smells kind of funky.",
-      "homeland": "The Ironwood Forest",
+      "location_id": 1,
       "profession": "Gardener",
       "philosophy": "Chaotic neutral; keeps to himself mostly, cares about the forest and nature more than folk.",
       "motivation": "Printz really really likes mushrooms. Almost to an unhealthy extent. And he spends all of his time traveling the world trying to find new ways to experience the universe.",
@@ -12,7 +12,7 @@
     {
       "name": "Trey Octavius Quincy",
       "description": "Street magician by day, hero by dusk. Respectable: never.",
-      "homeland": "The Astral Sea",
+      "location_id": 3,
       "profession": "Entertainer, Adventurer",
       "philosophy": "Lawful good; hunts monsters because he feels that their presence disrupts society, which makes people less likely to tip.",
       "motivation": "Trey has had a hard life; born as indentured labor on a salvage ship, he eventually escaped and found new purpose in making people smile at rabbits pulled from hats. He quietly does good deeds for folk in need, but he has a lasting resentment for the people who imprisoned him for most of his life, and vows to get revenge.",
@@ -22,7 +22,7 @@
     {
       "name": "Betty",
       "description": "Half giant teenager in a tutu, desperately searching for her identity.",
-      "homeland": "Knifeback Ridge",
+      "location_id": 4,
       "profession": "Bodyguard",
       "philosophy": "True neutral; she doesn't put a lot of thought into complicated concepts like morality, religion, or politics. What she does know is: her tutu is the height of fasion.",
       "motivation": "Betty just wants to find somewhere she fits in. She's tall for her age (even for half-giants), and she knows that intimidates people, but she doesn't care why (they're short, so what they say is not relevant).",

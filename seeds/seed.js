@@ -17,8 +17,8 @@ const seedDatabase = async () => {
         returning: true,
       });
 
-    await Character.bulkCreate(charData);
-    await Location.bulkCreate(locData);
+      await Location.bulkCreate(locData);
+      await Character.bulkCreate(charData);
     await Plot.bulkCreate(plotData);
 
     process.exit(0);
