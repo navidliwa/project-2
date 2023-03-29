@@ -1,11 +1,29 @@
 [
     {
-        "name": "The Heist of the Age",
-        "description": "The governing body of New Alexandria is corrupt. We're going to take away their right to rule.",
+        "name": "Don't Tread on Me",
+        "description": "An evil oligarch is trying to disarm the general public and take away their rights, and it's up to our band of adventurers to set things straight.",
         "location_id": 5,
         "characters": "Betty, Trey Octavius Quincy, Printz the Druid",
-        "conflict": "conflict",
-        "payoff": "payoff",
+        "conflict": "The primary antagonist of this arc is the mayor of Alexandria, who believes that the general populace should not be able to access arcane magic. The government will attempt to control the distribution of spell components and other magical goods, and eventually ban it entirely, which directly opposes the party's goals--adventuring, utilizing their magical talents and artifacts.",
+        "payoff": "Resolving the social/political issue will ingratiate the adventurers with the general population, and likely some of the sociopolitical factions that exist in (or under) the city.",
+        "user_id": 1
+    },
+    {
+        "name": "In Keeping Secrets of Silent Earth",
+        "description": "A xenophobic group of archdruids have called forth ancient natural denizens, and set them loose on expeditions journeying through the Ironwood Forest.",
+        "location_id": 2,
+        "characters": "Betty, Trey Octavius Quincy, Printz the Druid",
+        "conflict": "The druidic cult is very angry that civilization is creeping into it's domain, and has decided to fight back. This conflicts with the party's goals because they need to pass through Ironwood to get to the more populated portion of the continent, and other travel routes are too slow.",
+        "payoff": "Making peace with the cult (and maybe solving their problems) will teach the adventurers new secrets about the land that none have known for millenia.",
+        "user_id": 1
+    },
+    {
+        "name": "Ghost of Perdition",
+        "description": "An insane revnant has returned from the nine hells, bent on finding justice for the murder of their family.",
+        "location_id": 5,
+        "characters": "Betty, Trey Octavius Quincy, Printz the Druid",
+        "conflict": "Long before Trey became an adventurer, he was forced to murder hundreds of people at the behest of his god-king, and the shade of one of the heads of the families killed has returned to see him murdered in kind.",
+        "payoff": "For Trey, helping this father find peace and finish his business on the material plane will give him closure as well.",
         "user_id": 1
     }
 ]
