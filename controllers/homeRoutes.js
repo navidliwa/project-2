@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Plot, Location, Character } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const plotData = await Plot.findAll({
       include: [
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/plot/:id', async (req, res) => {
+router.get('/plot/:id', withAuth, async (req, res) => {
   try {
     const plotData = await Plot.findByPk(req.params.id, {
       include: [
@@ -45,7 +45,30 @@ router.get('/plot/:id', async (req, res) => {
   }
 });
 
-router.get('/location/:id', async (req, res) => {
+router.get('/locations', withAuth, async (req, res) => {
+  try {
+    const locationData = await Location.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const locations = locationData.map((location) => location.get({ plain: true }));
+
+    res.render('locations', {
+      locations,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+});
+
+router.get('/location/:id', withAuth, async (req, res) => {
   try {
     const locationData = await Location.findByPk(req.params.id, {
       include: [
@@ -65,9 +88,30 @@ router.get('/location/:id', async (req, res) => {
   }
 });
 
+router.get('/characters', withAuth, async (req, res) => {
+  try {
+    const characterData = await Character.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
 
+    const characters = characterData.map((character) => character.get({ plain: true }));
 
-router.get('/character/:id', async (req, res) => {
+    res.render('characters', {
+      characters,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+});
+
+router.get('/character/:id', withAuth, async (req, res) => {
   try {
     const characterData = await Character.findByPk(req.params.id, {
       include: [
