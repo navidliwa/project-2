@@ -141,7 +141,7 @@ router.get('/update/plot/:id', withAuth, async (req, res) => {
 
     const plot = plotData.get({ plain: true });
 
-    res.render('plotupdate', {
+    res.render('plotdetails', {
       ...plot,
       logged_in: req.session.logged_in
     });
@@ -161,7 +161,7 @@ router.get('/update/location/:id', withAuth, async (req, res) => {
 
     const location = locationData.get({ plain: true });
 
-    res.render('locationupdate', {
+    res.render('locationdetails', {
       ...location,
       logged_in: req.session.logged_in
     });
