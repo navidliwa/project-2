@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Plot } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const plotData = await Plot.findAll();
     res.status(200).json(plotData);
