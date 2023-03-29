@@ -1,42 +1,42 @@
 [
     {
         "name": "The Ironwood Forest",
-        "description": "desc",
+        "description": "The remnants of an ancient forest that was turned to iron long ago - all that remain is rust-colored sand and large iron spikes that used to be coniferous trees.",
         "biome": "Forest, Mountains",
         "places of interest": "Drygullet Mine, Brassville, The Sylvan Pools",
-        "history": "hist",
+        "history": "The Ironwood forest was petrified in a cataclysm hundreds of years back.",
         "user_id": 1
     },
     {
         "name": "Rusted Canyons",
-        "description": "desc",
+        "description": "A collection of slot canyons that divide the highlands from the plains, created as a result of thousands of years of drainage.",
         "biome": "Desert",
         "places of interest": "The Slag Heap, Churchill Steelworks, Widow's Pass",
-        "history": "hist",
+        "history": "The Rusted Canyons got their name not because of the color of the rock--the rocks are brown, like most everywhere else. Instead, the name came from the blood of people murdered by highwaymen who often stalk the trails.",
         "user_id": 1
     },
     {
         "name": "The Astral Sea",
-        "description": "desc",
+        "description": "Outer space, without all of the drawbacks.",
         "biome": "void, underdark",
         "places of interest": "none",
-        "history": "hist",
+        "history": "The Astral Sea is the physical expression of thought, and has existed longer than the concept of time.",
         "user_id": 1
     },
     {
         "name": "Knifeback Ridge",
-        "description": "desc",
+        "description": "High-peaked obsidian mountain range, studded with silver mines.",
         "biome": "Mountains, Plains, Tundra",
         "places of interest": "Canyon of the Stone Giants, Haven Township, Spirit Lake",
-        "history": "hist",
+        "history": "The sharp shards of obsidian that erupt from the ground here make it difficult to farm the land effectively.",
         "user_id": 1
     },
     {
         "name": "The Great City of New Alexandria",
-        "description": "desc",
+        "description": "A great metropolis, preserved though the rest of the world was destroyed.",
         "biome": "Urban, Plains",
         "places of interest": "The Holey Warrior Tavern and Gastro Pub, Alexandria Arcane University, Cheapside Parish",
-        "history": "hist",
+        "history": "The only city surviving the great cataclysm, New Alexandria is the center of commerce and industry on the continent.",
         "user_id": 1
     }
 ]
