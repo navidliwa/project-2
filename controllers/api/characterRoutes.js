@@ -11,6 +11,26 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/characterdetails/:id', withAuth, async (req, res) => {
+    try {
+        const characterData = await Character.findByPk(req.params.id, {
+            include: [
+                User
+            ],
+        });
+
+        const character = characterData.get({ plain: true });
+
+        res.render('characterdetails', {
+            ...character,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
+    }
+});
+
 router.post('/', withAuth, async (req, res) => {
     try {
         const newCharacter = await Character.create({
