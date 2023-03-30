@@ -7,30 +7,28 @@
                 <div class="card-text">
                     {{plot.description}}
                 </div>
-                <a class="btn btn-primary" href="/update/plot/{{plot.id}}" data-bs-toggle="modal"
-                    data-bs-target="#modal">Edit</a>
+                <button class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modal">Edit</button>
                 <button class="btn btn-danger" data-id="{{plot.id}}">Delete</button>
-                <div class="modal" id="modal">
+                <div class="modal fade" id="modal">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <form>
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" id="name" class="form-control" value="{{plot.name}}">
                                 <label for="descritpion" class="form-label">Description</label>
-                                <textarea type="text" id="description" class="form-control"
-                                    value="{{plot.description}}">{{plot.description}}</textarea>
+                                <textarea type="text" id="description"
+                                    class="form-control">{{plot.description}}</textarea>
                                 <label for="location" class="form-label">Location</label>
                                 <input type="text" id="location" class="form-control" value="{{plot.location}}">
                                 <label for="characters" class="form-label">Characters</label>
                                 <input type="text" id="characters" class="form-control" value="{{plot.characters}}">
                                 <label for="conflict" class="form-label">Conflict</label>
-                                <textarea type="text" id="conflict" class="form-control"
-                                    value="{{plot.conflict}}">{{plot.conflict}}</textarea>
+                                <textarea type="text" id="conflict" class="form-control">{{plot.conflict}}</textarea>
                                 <label for="payoff" class="form-label">Payoff</label>
-                                <textarea type="text" id="payoff" class="form-control"
-                                    value="{{plot.payoff}}">{{plot.payoff}}</textarea>
-                                <label class="form-label" for="customFile">Default file input example</label>
-                                <input type="file" class="form-control" id="customFile"/>
+                                <textarea type="text" id="payoff" class="form-control">{{plot.payoff}}</textarea>
+                                <label class="form-label" for="customFile">Image</label>
+                                <input type="file" class="form-control" id="customFile" />
                                 <button class="btn btn-primary">Save</button>
                             </form>
                         </div>
@@ -40,5 +38,29 @@
             <img src="{{plot.image}}" alt="{{plot.name}} image" class="card-img-bottom">
         </div>
         {{/each}}
+    </div>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-plot">New Plot</button>
+    <div class="modal fade" id="new-plot">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" class="form-control">
+                    <label for="descritpion" class="form-label">Description</label>
+                    <textarea type="text" id="description" class="form-control"></textarea>
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" id="location" class="form-control">
+                    <label for="characters" class="form-label">Characters</label>
+                    <input type="text" id="characters" class="form-control">
+                    <label for="conflict" class="form-label">Conflict</label>
+                    <textarea type="text" id="conflict" class="form-control"></textarea>
+                    <label for="payoff" class="form-label">Payoff</label>
+                    <textarea type="text" id="payoff" class="form-control"></textarea>
+                    <label class="form-label" for="customFile">Image</label>
+                    <input type="file" class="form-control" id="customFile" />
+                    <button class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

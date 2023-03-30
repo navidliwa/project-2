@@ -7,32 +7,30 @@
                 <div class="card-text">
                     {{character.description}}
                 </div>
-                <a class="btn btn-primary" href="/update/character/{{character.id}}" data-bs-toggle="modal"
-                    data-bs-target="#modal">Edit</a>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">Edit</button>
                 <button class="btn btn-danger" data-id="{{character.id}}">Delete</button>
-                <div class="modal" id="modal">
+                <div class="modal fade" id="modal">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <form>
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" id="name" class="form-control" value="{{character.name}}">
                                 <label for="descritpion" class="form-label">Description</label>
-                                <textarea type="text" id="description" class="form-control"
-                                    value="{{character.description}}">{{character.description}}</textarea>
+                                <textarea type="text" id="description"
+                                    class="form-control">{{character.description}}</textarea>
                                 <label for="location" class="form-label">Location</label>
                                 <input type="text" id="location" class="form-control" value="{{character.location}}">
                                 <label for="profession" class="form-label">Profession</label>
                                 <input type="text" id="profession" class="form-control"
                                     value="{{character.profession}}">
                                 <label for="philosophy" class="form-label">Philosophy</label>
-                                <textarea type="text" id="philosophy" class="form-control"
-                                    value="{{character.philosophy}}">{{character.philosophy}}</textarea>
+                                <textarea type="text" id="philosophy"
+                                    class="form-control">{{character.philosophy}}</textarea>
                                 <label for="motivation" class="form-label">Motivation</label>
-                                <textarea type="text" id="motivation" class="form-control"
-                                    value="{{character.motivation}}">{{character.motivation}}</textarea>
+                                <textarea type="text" id="motivation"
+                                    class="form-control">{{character.motivation}}</textarea>
                                 <label for="notes" class="form-label">Notes</label>
-                                <textarea type="text" id="notes" class="form-control"
-                                    value="{{character.notes}}">{{character.notes}}</textarea>
+                                <textarea type="text" id="notes" class="form-control">{{character.notes}}</textarea>
                                 <label class="form-label" for="customFile">Images</label>
                                 <input type="file" class="form-control" id="customFile" />
                                 <button class="btn btn-primary">Save</button>
@@ -45,6 +43,30 @@
         </div>
         {{/each}}
     </div>
-</div>
-<div class="container">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-character">New Character</button>
+    <div class="modal fade" id="new-character">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" class="form-control">
+                    <label for="descritpion" class="form-label">Description</label>
+                    <textarea type="text" id="description" class="form-control"></textarea>
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" id="location" class="form-control">
+                    <label for="profession" class="form-label">Profession</label>
+                    <input type="text" id="profession" class="form-control">
+                    <label for="philosophy" class="form-label">Philosophy</label>
+                    <textarea type="text" id="philosophy" class="form-control"></textarea>
+                    <label for="motivation" class="form-label">Motivation</label>
+                    <textarea type="text" id="motivation" class="form-control"></textarea>
+                    <label for="notes" class="form-label">Notes</label>
+                    <textarea type="text" id="notes" class="form-control"></textarea>
+                    <label class="form-label" for="customFile">Images</label>
+                    <input type="file" class="form-control" id="customFile" />
+                    <button class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
