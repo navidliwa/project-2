@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Plot } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const plotData = await Plot.findAll();
     res.status(200).json(plotData);
@@ -11,7 +11,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newPlot = await Plot.create({
       ...req.body,
