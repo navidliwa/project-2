@@ -25,7 +25,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/plot/:id', withAuth, async (req, res) => {
+router.get('/plotdetails/:id', withAuth, async (req, res) => {
   try {
     const plotData = await Plot.findByPk(req.params.id, {
       include: [

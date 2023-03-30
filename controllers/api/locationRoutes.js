@@ -11,6 +11,26 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/locationdetails/:id', withAuth, async (req, res) => {
+    try {
+        const locationData = await Location.findByPk(req.params.id, {
+            include: [
+                User
+            ],
+        });
+
+        const location = locationData.get({ plain: true });
+
+        res.render('plotdetails', {
+            ...location,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
+    }
+});
+
 router.post('/', withAuth, async (req, res) => {
     try {
         const newLocation = await Location.create({
