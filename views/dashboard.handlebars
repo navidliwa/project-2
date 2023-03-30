@@ -7,11 +7,20 @@
                 <div class="card-text">
                     {{plot.description}}
                 </div>
-                <a class="btn btn-primary" href="/update/plot/{{plot.id}}">Edit</a>
+                <a class="btn btn-primary" href="/update/plot/{{plot.id}}" data-bs-toggle="modal" data-bs-target="#modal">Edit</a>
                 <button class="btn btn-danger" data-id="{{plot.id}}">Delete</button>
             </div>
             <img src="#" alt="" class="card-img-bottom">
         </div>
         {{/each}}
+    </div>
+</div>
+<div class="container">
+    <div class="modal" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                Test
+            </div>
+        </div>
     </div>
 </div>
