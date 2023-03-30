@@ -2,6 +2,16 @@ const router = require('express').Router();
 const { Plot } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+const cloudinary = require('cloudinary').v2;
+require('dotenv').config();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
+  secure: true
+});
+
 router.get('/', async (req, res) => {
   try {
     const plotData = await Plot.findAll();
@@ -13,6 +23,15 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
+    // submittedImage = req.image;
+    // await cloudinary.uploader.upload(submittedImage, { public_id: req.body.name });
+
+    // const image = cloudinary.url(req.body.name, {
+    //   width: 100,
+    //   height: 150,
+    //   Crop: 'fill'
+    // });
+
     const newPlot = await Plot.create({
       ...req.body,
       user_id: req.session.user_id,
