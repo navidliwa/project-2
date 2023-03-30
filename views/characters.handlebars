@@ -3,7 +3,7 @@
         {{#each characters as |character|}}
         <div class="card">
             <div class="card-body">
-                <div class="card-title">{{character.name}}</div>
+                <div class="card-title"><a href="/character/{{character.id}}">{{character.name}}</a></div>
                 <div class="card-text">
                     {{character.description}}
                 </div>
