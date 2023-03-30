@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Character extends Model {};
+class Character extends Model { };
 
 Character.init(
     {
@@ -25,7 +25,7 @@ Character.init(
             references: {
                 model: 'location',
                 key: 'id',
-              },
+            },
         },
         profession: {
             type: DataTypes.STRING,
@@ -39,11 +39,15 @@ Character.init(
         notes: {
             type: DataTypes.TEXT('long'),
         },
+        // Cloudinary
+        image: {
+            type: DataTypes.STRING
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-              model: 'user',
-              key: 'id',
+                model: 'user',
+                key: 'id',
             },
         }
     },

@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Location extends Model {}
+class Location extends Model { }
 
 Location.init(
     {
@@ -38,11 +38,15 @@ Location.init(
         //         key: 'name',
         //     },
         // },
+        // Cloudinary
+        image: {
+            type: DataTypes.STRING
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-              model: 'user',
-              key: 'id',
+                model: 'user',
+                key: 'id',
             },
         }
     },
