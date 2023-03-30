@@ -10,34 +10,35 @@
 // });
 
 const newFormHandler = async (event) => {
-    event.preventDefault();
+    const name = document.querySelector('#name-create').value.trim();
+    const description = document.querySelector('#description-create').value.trim();
+    const location = document.querySelector('#location-create').value.trim();
+    const profession = document.querySelector('#profession-create').value.trim();
+    const philosophy = document.querySelector('#philosophy-create').value.trim();
+    const motivation = document.querySelector('#motivation-create').value.trim();
+    const notes = document.querySelector('#notes-create').value.trim();
+    const image = document.querySelector('#customFile-create').value.trim();
 
-    const name = document.querySelector('#character-name').value.trim();
-    const description = document.querySelector('#character-desc').value.trim();
-    const submittedImage = document.querySelector('#character-image').value;
+    // // Cloudinary
+    // await cloudinary.uploader.upload(submittedImage, { public_id: name });
+    // const image = cloudinary.url(name, {
+    //     width: 100,
+    //     height: 150,
+    //     Crop: 'fill'
+    // });
 
-    // Cloudinary
-    await cloudinary.uploader.upload(submittedImage, { public_id: name });
-    const image = cloudinary.url(name, {
-        width: 100,
-        height: 150,
-        Crop: 'fill'
+    const response = await fetch(`/api/characters`, {
+        method: 'POST',
+        body: JSON.stringify({ name, description, location, profession, philosophy, motivation, notes, image }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
     });
 
-    if (name && description && image) {
-        const response = await fetch(`/api/characters`, {
-            method: 'POST',
-            body: JSON.stringify({ name, description, image }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (response.ok) {
-            document.location.replace('/characters');
-        } else {
-            alert('Failed to create character');
-        }
+    if (response.ok) {
+        document.location.replace('/characters');
+    } else {
+        alert('Failed to create character');
     }
 };
 
@@ -86,9 +87,9 @@ const updateFormHandler = async (event) => {
     }
 };
 
-// document
-//     .querySelector('.new-character-form')
-//     .addEventListener('submit', newFormHandler);
+document
+    .querySelector('.new-character')
+    .addEventListener('click', newFormHandler);
 
 document
     .querySelector('.character-delete')

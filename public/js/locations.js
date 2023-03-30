@@ -10,34 +10,33 @@
 // });
 
 const newFormHandler = async (event) => {
-    event.preventDefault();
+    const name = document.querySelector('#name-create').value.trim();
+    const description = document.querySelector('#description-create').value.trim();
+    const biome = document.querySelector('#biome-create').value.trim();
+    const placesOfInterest = document.querySelector('#places-of-interest-create').value.trim();
+    const history = document.querySelector('#history-create').value.trim();
+    const image = document.querySelector('#customFile-create').value.trim();
 
-    const name = document.querySelector('#location-name').value.trim();
-    const description = document.querySelector('#location-desc').value.trim();
-    const submittedImage = document.querySelector('#location-image').value;
+    //     // Cloudinary
+    //     await cloudinary.uploader.upload(submittedImage, { public_id: name });
+    //     const image = cloudinary.url(name, {
+    //         width: 100,
+    //         height: 150,
+    //         Crop: 'fill'
+    //     });
 
-    // Cloudinary
-    await cloudinary.uploader.upload(submittedImage, { public_id: name });
-    const image = cloudinary.url(name, {
-        width: 100,
-        height: 150,
-        Crop: 'fill'
+    const response = await fetch(`/api/locations`, {
+        method: 'POST',
+        body: JSON.stringify({ name, description, biome, placesOfInterest, history, image }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
     });
 
-    if (name && description && image) {
-        const response = await fetch(`/api/locations`, {
-            method: 'POST',
-            body: JSON.stringify({ name, description, image }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (response.ok) {
-            document.location.replace('/locations');
-        } else {
-            alert('Failed to create post');
-        }
+    if (response.ok) {
+        document.location.replace('/locations');
+    } else {
+        alert('Failed to update plot');
     }
 };
 
@@ -84,37 +83,9 @@ const updateFormHandler = async (event) => {
     }
 };
 
-// const updateFormHandler = async (event) => {
-//     event.preventDefault();
-
-//     const name = document.querySelector('#name').value.trim();
-//     const description = document.querySelector('#description').value.trim();
-//     const biome = document.querySelector('#biome').value.trim();
-//     const placesOfInterest = document.querySelector('#places-of-interest').value.trim();
-//     const history = document.querySelector('#history').value.trim();
-//     const image = document.querySelector('#customFile').value.trim();
-
-
-//     if (name && description && biome && placesOfInterest && history && image) {
-//         const response = await fetch(`/api/plots/${id}`, {
-//             method: 'PUT',
-//             body: JSON.stringify({ name, description, biome, placesOfInterest, history, image }),
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//         });
-
-//         if (response.ok) {
-//             document.location.replace('/locations');
-//         } else {
-//             alert('Failed to update location');
-//         }
-//     }
-// };
-
-// document
-//     .querySelector('.new-location-form')
-//     .addEventListener('submit', newFormHandler);
+document
+    .querySelector('.new-location')
+    .addEventListener('click', newFormHandler);
 
 document
     .querySelector('.location-delete')

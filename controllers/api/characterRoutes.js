@@ -31,7 +31,7 @@ router.get('/characterdetails/:id', withAuth, async (req, res) => {
     }
 });
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const newCharacter = await Character.create({
             ...req.body,

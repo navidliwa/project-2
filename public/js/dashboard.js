@@ -10,34 +10,34 @@
 // });
 
 const newFormHandler = async (event) => {
-    event.preventDefault();
-
-    const name = document.querySelector('#plot-name').value.trim();
-    const description = document.querySelector('#plot-desc').value.trim();
-    const submittedImage = document.querySelector('#plot-image').value;
+    const name = document.querySelector('#name-create').value.trim();
+    const description = document.querySelector('#description-create').value.trim();
+    const location = document.querySelector('#location-create').value.trim();
+    const characters = document.querySelector('#characters-create').value.trim();
+    const conflict = document.querySelector('#conflict-create').value.trim();
+    const payoff = document.querySelector('#payoff-create').value.trim();
+    const image = document.querySelector('#customFile-create').value.trim();
 
     // Cloudinary
-    await cloudinary.uploader.upload(submittedImage, { public_id: name });
-    const image = cloudinary.url(name, {
-        width: 100,
-        height: 150,
-        Crop: 'fill'
+    // await cloudinary.uploader.upload(submittedImage, { public_id: name });
+    // const image = cloudinary.url(name, {
+    //     width: 100,
+    //     height: 150,
+    //     Crop: 'fill'
+    // });
+
+    const response = await fetch(`/api/plots`, {
+        method: 'POST',
+        body: JSON.stringify({ name, description, location, characters, conflict, payoff, image }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
     });
 
-    if (name && description && image) {
-        const response = await fetch(`/api/plots`, {
-            method: 'POST',
-            body: JSON.stringify({ name, description, image }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert('Failed to create plot');
-        }
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert('Failed to create plot');
     }
 };
 
@@ -85,9 +85,9 @@ const updateFormHandler = async (event) => {
     }
 };
 
-// document
-//     .querySelector('.new-plot-form')
-//     .addEventListener('submit', newFormHandler);
+document
+    .querySelector('.new-plot')
+    .addEventListener('click', newFormHandler);
 
 document
     .querySelector('.plot-delete')

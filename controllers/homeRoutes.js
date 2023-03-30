@@ -25,6 +25,29 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    const plotData = await Plot.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const plots = plotData.map((plot) => plot.get({ plain: true }));
+
+    res.render('dashboard', {
+      plots,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+});
+
 router.get('/plotdetails/:id', withAuth, async (req, res) => {
   try {
     const plotData = await Plot.findByPk(req.params.id, {
