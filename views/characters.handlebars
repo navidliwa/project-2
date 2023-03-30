@@ -12,7 +12,7 @@
                 <div class="modal fade" id="modal">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <form>
+                            <form class="update-character-form">
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" id="name" class="form-control" value="{{character.name}}">
                                 <label for="descritpion" class="form-label">Description</label>
@@ -33,7 +33,8 @@
                                 <textarea type="text" id="notes" class="form-control">{{character.notes}}</textarea>
                                 <label class="form-label" for="customFile">Images</label>
                                 <input type="file" class="form-control" id="customFile" />
-                                <button class="btn btn-primary">Save</button>
+                                <button class="update-character btn btn-primary"
+                                    data-id="{{character.id}}">Save</button>
                             </form>
                         </div>
                     </div>
@@ -43,6 +44,9 @@
         </div>
         {{/each}}
     </div>
+</div>
+<div class="container">
+</div>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-character">New Character</button>
     <div class="modal fade" id="new-character">
         <div class="modal-dialog">
@@ -70,3 +74,4 @@
         </div>
     </div>
 </div>
+<script src="./js/characters.js"></script>

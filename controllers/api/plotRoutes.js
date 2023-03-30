@@ -28,12 +28,13 @@ router.put('/:id', async (req, res) => {
   try {
     const updatedPlot = await Plot.update(
       {
-        // Edit fields if needed
         name: req.body.name,
+        description: req.body.description,
         location: req.body.location,
         characters: req.body.characters,
         conflict: req.body.conflict,
         payoff: req.body.payoff,
+        image: req.body.image
       },
       {
         where: {

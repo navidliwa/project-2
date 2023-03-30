@@ -13,7 +13,7 @@
                 <div class="modal fade" id="modal">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <form>
+                            <form class="update-plot-form">
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" id="name" class="form-control" value="{{plot.name}}">
                                 <label for="descritpion" class="form-label">Description</label>
@@ -27,9 +27,9 @@
                                 <textarea type="text" id="conflict" class="form-control">{{plot.conflict}}</textarea>
                                 <label for="payoff" class="form-label">Payoff</label>
                                 <textarea type="text" id="payoff" class="form-control">{{plot.payoff}}</textarea>
-                                <label class="form-label" for="customFile">Image</label>
+                                <label class="form-label" for="customFile">Default file input example</label>
                                 <input type="file" class="form-control" id="customFile" />
-                                <button class="btn btn-primary">Save</button>
+                                <button class="update-plot btn btn-primary" data-id="{{plot.id}}">Save</button>
                             </form>
                         </div>
                     </div>
@@ -39,6 +39,7 @@
         </div>
         {{/each}}
     </div>
+</div>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-plot">New Plot</button>
     <div class="modal fade" id="new-plot">
         <div class="modal-dialog">
@@ -64,3 +65,4 @@
         </div>
     </div>
 </div>
+<script type="module" src="./js/dashboard.js"></script>

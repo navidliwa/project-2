@@ -30,9 +30,11 @@ router.put('/:id', async (req, res) => {
             {
                 // Edit fields if needed
                 name: req.body.name,
+                description: req.body.description,
                 biome: req.body.biome,
-                interest: req.body.interest,
+                places_of_interest: req.body.placesOfInterest,
                 history: req.body.history,
+                image: req.body.image,
             },
             {
                 where: {
