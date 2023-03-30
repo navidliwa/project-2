@@ -1,14 +1,3 @@
-// Cloudinary
-// const cloudinary = require('cloudinary').v2;
-// require('dotenv').config();
-
-// cloudinary.config({
-//     cloud_name: process.env.CLOUDINARY_NAME,
-//     api_key: process.env.CLOUDINARY_KEY,
-//     api_secret: process.env.CLOUDINARY_SECRET,
-//     secure: true
-// });
-
 const newFormHandler = async (event) => {
     const name = document.querySelector('#name-create').value.trim();
     const description = document.querySelector('#description-create').value.trim();
@@ -18,17 +7,10 @@ const newFormHandler = async (event) => {
     const payoff = document.querySelector('#payoff-create').value.trim();
     const image = document.querySelector('#customFile-create').value.trim();
 
-    // Cloudinary
-    // await cloudinary.uploader.upload(submittedImage, { public_id: name });
-    // const image = cloudinary.url(name, {
-    //     width: 100,
-    //     height: 150,
-    //     Crop: 'fill'
-    // });
-
     const response = await fetch(`/api/plots`, {
         method: 'POST',
         body: JSON.stringify({ name, description, location, characters, conflict, payoff, image }),
+        // image: JSON.stringify({ image }),
         headers: {
             'Content-Type': 'application/json',
         },
