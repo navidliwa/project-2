@@ -7,7 +7,7 @@
                 <div class="card-text">
                     {{location.description}}
                 </div>
-                <button class="btn btn-primary" href="/update/location/{{location.id}}" data-bs-toggle="modal"
+                <button class="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#modal">Edit</button>
                 <button class="location-delete btn btn-danger" data-id="{{location.id}}">Delete</button>
                 <div class="modal" id="modal">
@@ -40,5 +40,27 @@
         {{/each}}
     </div>
 </div>
-
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-location">New Location</button>
+    <div class="modal fade" id="new-location">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" class="form-control">
+                    <label for="descritpion" class="form-label">Description</label>
+                    <textarea type="text" id="description" class="form-control"></textarea>
+                    <label for="biome" class="form-label">Biome</label>
+                    <input type="text" id="biome" class="form-control">
+                    <label for="places-of-interest" class="form-label">Places of Interest</label>
+                    <input type="text" id="places-of-interest" class="form-control">
+                    <label for="history" class="form-label">History</label>
+                    <textarea type="text" id="history" class="form-control"></textarea>
+                    <label class="form-label" for="customFile">Image</label>
+                    <input type="file" class="form-control" id="customFile" />
+                    <button class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="./js/locations.js"></script>
