@@ -3,7 +3,7 @@
         {{#each plots as |plot|}}
         <div class="card">
             <div class="card-body">
-                <div class="card-title">{{plot.name}}</div>
+                <div class="card-title"><a href="/plot/{{plot.id}}">{{plot.name}}</a></div>
                 <div class="card-text">
                     {{plot.description}}
                 </div>
