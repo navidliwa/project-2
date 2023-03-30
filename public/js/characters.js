@@ -1,13 +1,13 @@
 // Cloudinary
-require('dotenv').config();
-const cloudinary = require('cloudinary').v2;
+// require('dotenv').config();
+// const cloudinary = require('cloudinary').v2;
 
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_NAME,
-    api_key: process.env.CLOUDINARY_KEY,
-    api_secret: process.env.CLOUDINARY_SECRET,
-    secure: true
-});
+// cloudinary.config({
+//     cloud_name: process.env.CLOUDINARY_NAME,
+//     api_key: process.env.CLOUDINARY_KEY,
+//     api_secret: process.env.CLOUDINARY_SECRET,
+//     secure: true
+// });
 
 const newFormHandler = async (event) => {
     event.preventDefault();
@@ -57,10 +57,43 @@ const delButtonHandler = async (event) => {
     }
 };
 
-document
-    .querySelector('.new-character-form')
-    .addEventListener('submit', newFormHandler);
+const updateFormHandler = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+        const id = event.target.getAttribute('data-id');
+
+        const name = document.querySelector('#name').value.trim();
+        const description = document.querySelector('#description').value.trim();
+        const location = document.querySelector('#location').value.trim();
+        const profession = document.querySelector('#profession').value.trim();
+        const philosophy = document.querySelector('#philosophy').value.trim();
+        const motivation = document.querySelector('#motivation').value.trim();
+        const notes = document.querySelector('#notes').value.trim();
+        const image = document.querySelector('#customFile').value.trim();
+
+        const response = await fetch(`/api/characters/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({ name, description, location, profession, philosophy, motivation, notes, image }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            document.location.replace('/characters');
+        } else {
+            alert('Failed to update character');
+        }
+    }
+};
+
+// document
+//     .querySelector('.new-character-form')
+//     .addEventListener('submit', newFormHandler);
 
 document
-    .querySelector('.')
+    .querySelector('.character-delete')
     .addEventListener('click', delButtonHandler);
+
+document
+    .querySelector('.update-character')
+    .addEventListener('click', updateFormHandler);

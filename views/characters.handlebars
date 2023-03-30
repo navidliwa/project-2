@@ -9,11 +9,11 @@
                 </div>
                 <a class="btn btn-primary" href="/update/character/{{character.id}}" data-bs-toggle="modal"
                     data-bs-target="#modal">Edit</a>
-                <button class="btn btn-danger" data-id="{{character.id}}">Delete</button>
+                <button class="character-delete btn btn-danger" data-id="{{character.id}}">Delete</button>
                 <div class="modal" id="modal">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <form>
+                            <form class="update-character-form">
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" id="name" class="form-control" value="{{character.name}}">
                                 <label for="descritpion" class="form-label">Description</label>
@@ -35,7 +35,8 @@
                                     value="{{character.notes}}">{{character.notes}}</textarea>
                                 <label class="form-label" for="customFile">Images</label>
                                 <input type="file" class="form-control" id="customFile" />
-                                <button class="btn btn-primary">Save</button>
+                                <button class="update-character btn btn-primary"
+                                    data-id="{{character.id}}">Save</button>
                             </form>
                         </div>
                     </div>
@@ -48,3 +49,5 @@
 </div>
 <div class="container">
 </div>
+
+<script src="./js/characters.js"></script>
