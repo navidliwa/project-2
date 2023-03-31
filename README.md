@@ -28,8 +28,10 @@ Plotpoint is a simple storyboarding web application that lets users create an ac
  - Handlebars/HTML
  - MySQL
  - Express
+ - Node.js
  - Bootstrap
  - Javascript
+ - Cloudinary (in progress): [https://cloudinary.com/](https://cloudinary.com/)
 
  ## Credits
 
