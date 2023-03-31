@@ -1,7 +1,10 @@
 <div class="container">
-    <div class="card-deck">
+    <h1>Characters</h1>
+</div>
+<div class="container">
+    <div class="card-deck d-flex flex-wrap justify-content-around align-content-around">
         {{#each characters as |character|}}
-        <div class="card">
+        <div class="card d-flex align-content-around">
             <div class="card-body">
                 <div class="card-title"><a href="/character/{{character.id}}">{{character.name}}</a></div>
                 <div class="card-text">
@@ -44,13 +47,11 @@
         </div>
         {{/each}}
     </div>
+        <button class="btn btn-primary new" data-bs-toggle="modal" data-bs-target="#new-character">New Character</button>
 </div>
-<div class="container">
-</div>
-<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-character">New Character</button>
 <div class="modal fade" id="new-character">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content container">
             <form>
                 <label for="name" class="form-label">Name</label>
                 <input type="text" id="name-create" class="form-control">

@@ -1,7 +1,10 @@
 <div class="container">
-    <div class="card-deck mt-4">
+    <h1>Locations</h1>
+</div>
+<div class="container">
+    <div class="card-deck d-flex flex-wrap justify-content-around align-content-around">
         {{#each locations as |location|}}
-        <div class="card">
+        <div class="card d-flex align-content-around">
             <div class="card-body">
                 <div class="card-title"><a href="/location/{{location.id}}">{{location.name}}</a></div>
                 <div class="card-text">
@@ -38,11 +41,11 @@
         </div>
         {{/each}}
     </div>
+        <button class="btn btn-primary new" data-bs-toggle="modal" data-bs-target="#new-location">New Location</button>
 </div>
-<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-location">New Location</button>
 <div class="modal fade" id="new-location">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content container">
             <form>
                 <label for="name" class="form-label">Name</label>
                 <input type="text" id="name-create" class="form-control">

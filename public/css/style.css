@@ -2,27 +2,73 @@ body {
     background-color: #fcf6f5ff;
 }
 
+.navbar {
+    padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-y) var(--bs-navbar-padding-y) var(--bs-navbar-padding-y);
+}
+
+.form-control {
+    width: 25vw;
+    height: 3rem;
+}
+
+h1 {
+    margin-top: 5%;
+    font-weight: bold;
+    letter-spacing: .35rem;
+}
+
 .card {
     border-color: black;
     border-style: solid;
     border-width: 4px;
-    display: inline-block;
-    flex-wrap: wrap;
-    margin-top: 15%;
-    padding-top: 10px;
+    margin-top: 7%;
     width: 500px;
-} 
-
-.card-deck {
-    align-items: center;
-    margin-left: 15%;
 }
 
 .card-title {
     font-weight: bold;
+    font-size: 1.5rem;
     text-align: center;
 }
 
 .btn {
     margin-top: 5%;
+}
+
+.btn-secondary {
+    margin: 0 0 0 5%;
+}
+
+.new {
+    display: block;
+}
+
+
+.modal-content {
+    padding: calc(var(--bs-gutter-x) * .5);
+}
+
+.details {
+    border-color: black;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 7px;
+}
+
+.h-50 {
+    margin-top: 4%;
+}
+
+p {
+    margin: 8rem 0 2rem 1rem;
+    font-size: 1.5rem;
+}
+
+.footer {
+    height: 15vh;
+}
+
+@media screen and (max-width: 630px) {
+    .form-control {
+        width: 45vw}; 
 }
